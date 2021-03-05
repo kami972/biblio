@@ -3,17 +3,17 @@
 package Schemas;
 
 
-public class EnumCategorieEmploye 
+public enum EnumCategorieEmploye 
 {
-   private int BIBLIOTHECAIRE;
-   private int RESPONSABLE;
-   private int GESTIONNAIRE_DE_FONDS;
-   
-   /**
-    * @roseuid 604209D10151
-    */
-   public EnumCategorieEmploye() 
+   BIBLIOTHECAIRE,RESPONSABLE,GESTIONNAIRE_DE_FONDS;
+	private boolean fonction;
+	
+	private EnumCategorieEmploye(boolean fonction) 
    {
-    
+    setFonction(fonction);
    }
+	
+	private void setFonction( boolean fonction) {
+		this.fonction=fonction;
+	}
 }

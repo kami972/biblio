@@ -3,17 +3,17 @@
 package Schemas;
 
 
-public class EnumStatusExemplaire 
+public enum EnumStatusExemplaire 
 {
-   private int PRETE;
-   private int DISPONIBLE;
-   private int SUPPRIME;
+   PRETE,DISPONIBLE,SUPPRIME;
+	private boolean etat;
    
-   /**
-    * @roseuid 604209D1017C
-    */
-   public EnumStatusExemplaire() 
+   private EnumStatusExemplaire(boolean etat) 
    {
-    
+    setEtat(etat);
+   }
+   
+   private void setEtat(etat) {
+	   this.etat=etat;
    }
 }
