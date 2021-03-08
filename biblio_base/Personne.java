@@ -18,5 +18,6 @@ public class Personne
     this.nom = nom;
     this.prenom = prenom;
     this.dateNaissance = dateNaissance;
+    this.sexe = sexe;
    }
 }
