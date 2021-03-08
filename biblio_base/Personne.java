@@ -13,8 +13,10 @@ public class Personne
    /**
     * @roseuid 604209D101D5
     */
-   public Personne() 
+   public Personne(String nom, String prenom,Date dateNaissance,String sexe) 
    {
-    
+    this.nom = nom;
+    this.prenom = prenom;
+    this.dateNaissance = dateNaissance;
    }
 }
