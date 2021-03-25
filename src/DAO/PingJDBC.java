@@ -22,7 +22,7 @@ public class PingJDBC {
 
 		public static Connection getConnectionByProperties() throws IOException, FileNotFoundException{
 	      Properties properties = new Properties();
-	      FileInputStream input = new FileInputStream("src\\biblio\\DAO\\jdbc.properties");
+	      FileInputStream input = new FileInputStream("jdbc.properties");
 	      try{
 	         properties.load(input);
 	      }finally{

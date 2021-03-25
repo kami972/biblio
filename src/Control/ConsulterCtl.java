@@ -23,14 +23,20 @@ public static void main(String[] args) throws HeadlessException, IOException, Nu
 		System.out.println("\n\n-------------Test 2.1 : Connection à la base avec le user Bibliothecaire-----------------------\n\n");
 		int z=0, y=0;
 		Properties properties = new Properties();
-	      FileInputStream input = new FileInputStream("src\\biblio\\DAO\\jdbc.properties");
+	      FileInputStream input = new FileInputStream("jdbc.properties");
 	      try{
 	         properties.load(input);
 	      }finally{
 		         input.close();
 		         
 		  }
-		if(PingJDBC.getConnectionByProperties() != null) JOptionPane.showMessageDialog(null, "Vous êtes connecté(e) à la base de données de la bibliothèque avec le user : "+properties.getProperty("user"), "Etat de la connection à la base de données" , JOptionPane.INFORMATION_MESSAGE);
+		if(PingJDBC.getConnectionByProperties() != null) 
+		{
+			JOptionPane.showMessageDialog(null, "Vous êtes connecté(e) à la base de données de la bibliothèque avec l'utilisateur : "+properties.getProperty("user"),
+			"Etat de la connection à la base de données" , 
+			JOptionPane.INFORMATION_MESSAGE);
+			
+		}
 		
 		
 		System.out.println("\n\n-------------Test 2.2 : Demande des objets aux DAO-----------------------\n\n");
@@ -69,12 +75,11 @@ public static void main(String[] args) throws HeadlessException, IOException, Nu
 		}
 		
 		JOptionPane.showMessageDialog(null, "Au Revoir et a bientôt !", "Fin de session", JOptionPane.INFORMATION_MESSAGE);
-
-	}
+}
 	
 	public static String connectbase() throws IOException {
 		Properties properties = new Properties();
-	      FileInputStream input = new FileInputStream("src\\biblio\\DAO\\jdbc.properties");
+	      FileInputStream input = new FileInputStream("biblio_base\\DAO\\jdbc.properties");
 	      try{
 	         properties.load(input);
 	      }finally{

@@ -39,20 +39,16 @@ public class ExemplairesDAO {
 	{
 		Statement stmt1 = cnx1.createStatement();
 		ResultSet rs2 = stmt1.executeQuery(
-				"select idexemplaire,status,dateachat,isbn "+
-				" FROM exemplaire where idexemplaire = " + idExemplaire);			
+				"select *  FROM EXEMPLAIRE WHERE idexemplaire = " + idExemplaire);			
 		Exemplaire ex = null;
 		
 		boolean next = rs2.next();
-		//while( rs2.next()){} //pas nécessaire
-		/*String idexemplaire = rs2.getString(1);
-		String status = rs2.getString(3);
-		Date dateachat=rs2.getDate(2);*/
+	
 
 		if( next ) {
 			int idexemplaire = rs2.getInt("idexemplaire");
 			String status = rs2.getString("status");
-			String dateachat=rs2.getDate("dateachat").toString(); 
+			String dateachat = rs2.getDate("dateachat").toString(); 
 			String isbn = rs2.getString("isbn");
 			EnumStatusExemplaire enumStatus = EnumStatusExemplaire.valueOf(status);
 			//Livre livre = null; // Lazy-loading //chargement tardif
