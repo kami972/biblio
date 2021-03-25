@@ -53,7 +53,7 @@ public static void main(String[] args) throws HeadlessException, IOException, Nu
 		ExemplairesDAO exemplaire1 = new ExemplairesDAO(PingJDBC.getConnectionByProperties());
 		
 		String h = JOptionPane.showInputDialog(null, "Entrez l'ID de l'exemplaire ( de 1 à 8 ): ","Recherche d'un exemplaire", JOptionPane.INFORMATION_MESSAGE);
-		System.out.println("\nDemande d'exemplaire n°"+(++y)+" : "+exemplaire1.findByKey(Integer.parseInt(h)));
+		System.out.println("\nDemande d'exemplaire n°"+(++y)+" : "+exemplaire1.findByKey((Integer.parseInt(h))) );
 		
 		}
 		

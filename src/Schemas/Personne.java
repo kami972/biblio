@@ -11,7 +11,7 @@ public class Personne
 {
    private String nom;
    private String prenom;
-   protected static DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+   protected static DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
    private static LocalDate dateNaissance;
    private String sexe;
    

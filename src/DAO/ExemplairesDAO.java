@@ -25,14 +25,14 @@ public class ExemplairesDAO {
 	
 	
 	
-	
-	public static Exemplaire[] exemplaireDB = {
-				new Exemplaire (1,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"az023l"),
-				new Exemplaire (2,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"az025p"),
-				new Exemplaire (3,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"az026a"),
-				new Exemplaire (4,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"ab457i")
-			};
-	private static Exemplaire[] requete = new Exemplaire[2];;
+//	
+//	public static Exemplaire[] exemplaireDB = {
+//				new Exemplaire (1,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"az023l"),
+//				new Exemplaire (2,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"az025p"),
+//				new Exemplaire (3,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"az026a"),
+//				new Exemplaire (4,"11/08/2010",EnumStatusExemplaire.DISPONIBLE,"ab457i")
+//			};
+//	private static Exemplaire[] requete = new Exemplaire[2];
 
 	
 	public static Exemplaire findByKey(int idExemplaire) throws SQLException 
@@ -62,12 +62,27 @@ public class ExemplairesDAO {
 		return ex;
 	}
 		
-		public List <Exemplaire> findAll() {
-			List <Exemplaire> exTrouves = new ArrayList <Exemplaire> ();
-			for (Exemplaire exemp : exemplaireDB) {
-				exTrouves.add(exemp);
-			}
-			return exTrouves;
+	public ArrayList<Exemplaire> findAll() throws SQLException
+	{
+		Statement stmt1 = cnx1.createStatement();
+		ArrayList <Exemplaire> listeExemplaire= new ArrayList<Exemplaire>();
+		ResultSet rs3 = stmt1.executeQuery("select * FROM exemplaire");			
+		while( rs3.next()){
+			
+			int idexemplaire = rs3.getInt(1); //  corrigé
+			String dateachat=rs3.getDate(2).toString(); // corrigé !!!
+			String isbn = rs3.getString(4);
+			String status = rs3.getString(3);
+			EnumStatusExemplaire enstex = EnumStatusExemplaire.valueOf(status);
+			
+			//System.out.println("ID Exemplaire : " + idexemplaire +" Status : "+ status );
+			//Livre livre=new Livre();
+			Exemplaire ex = new Exemplaire(idexemplaire,dateachat,enstex,isbn);//mapping Objet Relationel
+			listeExemplaire.add(ex);
+			
 		}
+		
+		return listeExemplaire;
+	}
 	
 }

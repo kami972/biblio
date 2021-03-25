@@ -1,5 +1,6 @@
 package Schemas;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -7,7 +8,8 @@ public class Exemplaire {
 	private int idExemplaire;
 	private LocalDate dateAchat;
 	private EnumStatusExemplaire status;
-	private DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	private DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 	private String isbn;
 	
 	public Exemplaire(int idExemplaire,String dateAchat,EnumStatusExemplaire status,String isbn) {
